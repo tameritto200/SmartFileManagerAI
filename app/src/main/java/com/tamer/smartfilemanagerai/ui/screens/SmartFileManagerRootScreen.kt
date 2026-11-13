@@ -223,7 +223,7 @@ private fun DashboardScreenContent(
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = ""قل ما تريد... وسيقوم هاتفك بتنظيم نفسه."",
+                        text = "«قل ما تريد... وسيقوم هاتفك بتنظيم نفسه.»",
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Spacer(modifier = Modifier.height(14.dp))
@@ -649,8 +649,7 @@ private fun OrganizationPreviewScreenContent(
                             Column(modifier = Modifier.weight(1f)) {
                                 Text("${item.originalName} ← ${item.proposedNewName}", fontWeight = FontWeight.Bold)
                                 Text(
-                                    "من: ${item.sourceFolderPath}
-إلى: ${item.targetFolderPath} (${item.confidenceLevel.arabicLabel})",
+                                    "من: ${item.sourceFolderPath}\nإلى: ${item.targetFolderPath} (${item.confidenceLevel.arabicLabel})",
                                     style = MaterialTheme.typography.bodySmall
                                 )
                             }
@@ -682,8 +681,7 @@ private fun OperationHistoryScreenContent(viewModel: MainViewModel) {
                 Card(modifier = Modifier.fillMaxWidth()) {
                     Column(modifier = Modifier.padding(12.dp)) {
                         Text("${op.operationType}: ${op.previousName} ← ${op.newName}", fontWeight = FontWeight.Bold)
-                        Text("المسار الأصلي: ${op.originalPath}
-المسار الجديد: ${op.newPath}", style = MaterialTheme.typography.bodySmall)
+                        Text("المسار الأصلي: ${op.originalPath}\nالمسار الجديد: ${op.newPath}", style = MaterialTheme.typography.bodySmall)
                         Text("الحالة: ${op.executionStatus} | قابل للتراجع: ${if (op.canUndo) "نعم" else "لا"}", style = MaterialTheme.typography.labelSmall)
                     }
                 }

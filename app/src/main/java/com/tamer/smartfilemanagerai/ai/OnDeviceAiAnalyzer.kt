@@ -221,7 +221,7 @@ class OnDeviceAiAnalyzer(
                     buildResult(DetailedCategory.VID_FUNNY, 0.82f, "فيديو ترفيهي", "مقطع فيديو ترفيهي قصير")
                 // Opaque camera filenames like VID_20261110_123456.mp4 without extracted OCR/frame text:
                 // Per Section 4 rule: Never claim full content certainty based only on an opaque filename!
-                fileName.matches(Regex("^(VID|MOV|DJI|VIDEO)[_-]?\d+.*", RegexOption.IGNORE_CASE)) && extractedText.isBlank() ->
+                fileName.matches(Regex("""^(VID|MOV|DJI|VIDEO)[_-]?\d+.*""", RegexOption.IGNORE_CASE)) && extractedText.isBlank() ->
                     buildResult(DetailedCategory.VID_PERSONAL, 0.52f, "تسجيل كاميرا شخصي", "فيديو مسجل بالكاميرا (ثقة منخفضة لعدم وجود نص وصفي كافٍ)")
                 else ->
                     buildResult(DetailedCategory.VID_PERSONAL, 0.65f, "فيديو عام", "ملف فيديو تم تحليله عبر البيانات الوصفية")
@@ -335,8 +335,8 @@ class OnDeviceAiAnalyzer(
     private fun extractKeywords(fileName: String, extractedText: String, category: DetailedCategory): List<String> {
         val stopWords = setOf("من", "في", "على", "إلى", "عن", "مع", "هذا", "هذه", "التي", "الذي", "the", "and", "for", "with", "doc", "img", "vid")
         val tokens = "$fileName $extractedText ${category.arabicName}"
-            .replace(Regex("[^\p{L}\p{N}\s]"), " ")
-            .split(Regex("\s+"))
+            .replace(Regex("""[^\p{L}\p{N}\s]"""), " ")
+            .split(Regex("""\s+"""))
             .map { it.trim().lowercase() }
             .filter { it.length >= 3 && it !in stopWords }
             .distinct()

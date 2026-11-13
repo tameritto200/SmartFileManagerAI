@@ -231,14 +231,14 @@ class AiRenamingEngine {
     }
 
     private fun extractMeaningfulNumber(text: String): String? {
-        val regex = Regex("\b(10|11|202[0-9]|فصل\s*\d+|جزء\s*\d+)\b")
-        return regex.find(text)?.value?.replace(Regex("\s+"), "_")
+        val regex = Regex("""\b(10|11|202[0-9]|فصل\s*\d+|جزء\s*\d+)\b""")
+        return regex.find(text)?.value?.replace(Regex("""\s+"""), "_")
     }
 
     fun sanitizeFileNameToken(raw: String): String {
         return raw.trim()
-            .replace(Regex("[\\/:*?"<>|]"), "")
-            .replace(Regex("\s+"), "_")
+            .replace(Regex("""[\\/:*?"<>|]"""), "")
+            .replace(Regex("""\s+"""), "_")
             .replace(Regex("_+"), "_")
             .trim('_')
             .ifBlank { "ملف" }

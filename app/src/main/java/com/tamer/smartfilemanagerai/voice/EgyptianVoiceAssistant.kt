@@ -105,7 +105,7 @@ class EgyptianNlpCommandParser {
 
     private fun tryParseCompoundCommand(normalizedText: String): List<VoiceExecutionStep> {
         val clauses = normalizedText
-            .split(Regex("[,،]|\s+و(?=اعمل|انشا|رتب|صنف|غير|سمي|انقل|هات|اجمع)"))
+            .split(Regex("""[,،]|\s+و(?=اعمل|انشا|رتب|صنف|غير|سمي|انقل|هات|اجمع)"""))
             .map { it.trim() }
             .filter { it.isNotBlank() }
 
@@ -273,7 +273,7 @@ class EgyptianNlpCommandParser {
             .replace("ة", "ه")
             .replace("ى", "ي")
             .replace(Regex("[\u064B-\u065F]"), "") // strip diacritics
-            .replace(Regex("\s+"), " ")
+            .replace(Regex("""\s+"""), " ")
             .trim()
     }
 }

@@ -104,7 +104,7 @@ enum class NamingStyle(val arabicLabel: String) {
     PROFESSIONAL_STRUCTURED("اسم احترافي منظم بالتاريخ والتصنيف")
 }
 
-enum classNamingLanguage {
+enum class NamingLanguage {
     ARABIC,
     ENGLISH
 }

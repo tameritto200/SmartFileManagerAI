@@ -121,7 +121,7 @@ class SemanticSearchEngine(
     }
 
     private fun parseMinimumDurationFilterMs(normalizedQuery: String): Long? {
-        val regex = Regex("اكثر من\s*(\d+)\s*(دقائق|دقيقه)")
+        val regex = Regex("""اكثر من\s*(\d+)\s*(دقائق|دقيقه)""")
         val match = regex.find(normalizedQuery) ?: return null
         val minutes = match.groupValues[1].toLongOrNull() ?: return null
         return minutes * 60_000L
@@ -158,8 +158,8 @@ class SemanticSearchEngine(
             "pdf", "excel"
         )
         return normalizedQuery
-            .replace(Regex("[^\p{L}\p{N}\s]"), " ")
-            .split(Regex("\s+"))
+            .replace(Regex("""[^\p{L}\p{N}\s]"""), " ")
+            .split(Regex("""\s+"""))
             .map { it.trim() }
             .filter { it.length >= 2 && it !in boilerplate && !it.all { ch -> ch.isDigit() } }
             .distinct()

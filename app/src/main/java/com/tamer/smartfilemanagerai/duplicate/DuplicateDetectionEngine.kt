@@ -160,7 +160,7 @@ class DuplicateDetectionEngine(private val database: SmartFileDatabase) {
      * Selects the best copy to keep: prefers non-backup filenames, larger size/resolution, and earliest creation date.
      */
     private fun selectBestCopyToKeep(candidates: List<FileEntity>): FileEntity {
-        val backupPattern = Regex("(\(\d+\)|copy|نسخة|نسخه|_\d+$)", RegexOption.IGNORE_CASE)
+        val backupPattern = Regex("""(\(\d+\)|copy|نسخة|نسخه|_\d+$)""", RegexOption.IGNORE_CASE)
         return candidates.sortedWith(
             compareBy<FileEntity> { backupPattern.containsMatchIn(it.currentName.substringBeforeLast('.')) }
                 .thenByDescending { it.sizeBytes }
