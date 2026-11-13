@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart File Manager AI</string>
+    <string name="app_name_ar">مدير الملفات الذكي بالذكاء الاصطناعي</string>
+    <string name="app_slogan">قل ما تريد... وسيقوم هاتفك بتنظيم نفسه.</string>
+    <string name="welcome_title">مرحباً بك في مدير الملفات الذكي</string>
+    <string name="scan_all_action">الفحص الشامل</string>
+    <string name="smart_organize_action">التنظيم الذكي</string>
+    <string name="voice_assistant_action">المساعد الصوتي</string>
+    <string name="semantic_search_hint">ابحث بوصف المحتوى (مثال: فيديو شرح Excel أو إيصال الكهرباء)...</string>
+</resources>

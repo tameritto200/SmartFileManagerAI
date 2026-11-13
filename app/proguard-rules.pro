@@ -1,0 +1,9 @@
+-keepattributes *Annotation*,SourceFile,LineNumberTable
+-keep class com.tamer.smartfilemanagerai.data.local.entity.** { *; }
+-keep class com.tamer.smartfilemanagerai.ai.cloud.dto.** { *; }
+-dontwarn org.apache.pdfbox.**
+-dontwarn org.apache.fontbox.**
+-dontwarn com.tom_roush.**
+-dontwarn java.awt.**
+-dontwarn javax.imageio.**
+-dontwarn org.bouncycastle.**
