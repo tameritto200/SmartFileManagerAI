@@ -20,7 +20,7 @@ import java.util.Locale
 class AiRenamingEngine {
 
     private val opaqueNameRegex = Regex(
-        "^(IMG|VID|MOV|AUD|PTT|DOC|Document|Scan|Screenshot|WhatsApp\s*(Image|Video|Audio)|WA|File)[_\-\s]*\d+.*",
+        """^(IMG|VID|MOV|AUD|PTT|DOC|Document|Scan|Screenshot|WhatsApp\s*(Image|Video|Audio)|WA|File)[_\-\s]*\d+.*""",
         RegexOption.IGNORE_CASE
     )
 
